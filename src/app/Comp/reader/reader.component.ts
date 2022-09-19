@@ -1,20 +1,20 @@
 import { Component, OnInit } from '@angular/core';
 import Book from 'src/app/entity/book';
+import Purchase from 'src/app/entity/purchase';
 import { UserService } from 'src/app/user.service';
 @Component({
-  selector: 'app-search-book',
-  templateUrl: './search-book.component.html',
-  styleUrls: ['./search-book.component.css']
+  selector: 'app-reader',
+  templateUrl: './reader.component.html',
+  styleUrls: ['./reader.component.css']
 })
+export class ReaderComponent implements OnInit {
 
-
-export class SearchBookComponent implements OnInit {
   book: Book = new Book();
 
   books: Book[] = [];
+
   id: number = 0;
   searchText: string;
-
   constructor(public userService: UserService) { }
 
   ngOnInit(): void {
@@ -25,12 +25,13 @@ export class SearchBookComponent implements OnInit {
     })
   }
 
+
   update(book) {
     console.log(book);
     const observable = this.userService.updateBook(this.book, this.id)
     observable.subscribe((response: any) => {
       console.log(response);
-      alert("Book Updated Sucessfully!")
+      alert("Book Updated Successfully!")
     },
       function (error) {
         console.log(error);
@@ -57,15 +58,17 @@ export class SearchBookComponent implements OnInit {
   }
 
 
-  deleteRow(book, index) {
-    const observable = this.userService.deleteBook(book);
-    observable.subscribe((response: any) => {
-      console.log(response);
-      this.books.splice(index, 1)
-    })
-    alert("Book deleted Successfully!")
+
+  save() {
+    const observable = this.userService.saveBook(this.book);
+    observable.subscribe(
+      (response: any) => {
+        console.log(response);
+        alert("Save Success")},
+      function (error) {
+        console.log(error);
+        alert("Somthing went wrong")
+      }
+    )
   }
-
-
-
 }

@@ -16,10 +16,10 @@
 
            <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              Book
+              Author
             </a>
             <ul class="dropdown-menu">
-              <li><a class="dropdown-item" routerLink="/searchBook" href="#">Search Book</a></li>
+              <li><a class="dropdown-item" routerLink="/searchBook" href="#">Search Books</a></li>
               <li><hr class="dropdown-divider"></li>
               <li><a class="dropdown-item" routerLink="/createBook" href="#">Create Book</a></li>
             </ul>
@@ -27,27 +27,22 @@
           
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              User
+              Reader
             </a>
             <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="#">Author</a></li>
-              <li><hr class="dropdown-divider"></li>
-              <li><a class="dropdown-item" href="#">Reader</a></li>
+              <!-- <li><a class="dropdown-item" routerLink="/searchBook" href="#">Seach Book</a></li>
+              <li><hr class="dropdown-divider"></li> -->
+              <li><a class="dropdown-item" routerLink="/reader"  href="#">View All Books</a></li>
             </ul>
           </li> 
           
           <li class="nav-item">
             <a class="nav-link"  routerLink="/regesterUser" href="#">Regester</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" routerLink="/about" href="#">About-Us</a>
-          </li>
+     
        
         </ul>
-        <form class="d-flex" role="search">
-          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-          <button class="btn btn-outline-success" type="submit">Search</button>
-        </form>
+
       </div>
     </div>
   </nav>

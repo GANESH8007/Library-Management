@@ -11,6 +11,9 @@ import { LoginUserComponent } from './Comp/login-user/login-user.component';
 import { AboutComponent } from './Comp/about/about.component';
 import {HttpClientModule} from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { AuthorComponent } from './Comp/author/author.component';
+import { ReaderComponent } from './Comp/reader/reader.component';
+import { FilterPipe } from './filter.pipe';
 
 @NgModule({
   declarations: [
@@ -21,7 +24,10 @@ import { FormsModule } from '@angular/forms';
     LoginComponent,
     RegesterUserComponent,
     LoginUserComponent,
-    AboutComponent
+    AboutComponent,
+    AuthorComponent,
+    ReaderComponent,
+    FilterPipe
   ],
   imports: [
     BrowserModule,

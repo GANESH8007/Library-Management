@@ -1,15 +1,21 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import purchase from './entity/purchase';
 
-// const BASE_URL="http://localhost:3000/users"
-const BOOK_URL="http://localhost:8081/"
+const BOOK_URL="http://localhost:8080/"
+//const BOOK_URL="http://ec2-35-90-125-59.us-west-2.compute.amazonaws.com:8080/"
 
-const USER_URL="http://localhost:8082/"
+const USER_URL="http://localhost:8081/"
+//const USER_URL="http://ec2-34-214-247-15.us-west-2.compute.amazonaws.com:8081/"
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
+
+  getAll() {
+  //  return this.http.get<User[]>(`/users`);
+}
 
     getUsers(){
       return this.http.get(USER_URL)
@@ -19,18 +25,14 @@ export class UserService {
       return this.http.get(BOOK_URL+"allBook")
     }
 
-    deleteUser(user:any)
-    {
-      return this.http.delete(BOOK_URL+"/",user.id)
+
+    updateBook(book, id) {
+      return this.http.put(BOOK_URL+"updateBookById/"+id,book)
     }
 
-    createUser(user:{
-      firstname:string;
-      lastname:string;
-      age:number;
-      Gender:string;
-    }){
-      return this.http.post(BOOK_URL,user);
+    deleteBook(book:any)
+    {
+      return this.http.delete(BOOK_URL+"DeleteBookById/"+book.id)
     }
 
     saveBook(book:{
@@ -43,6 +45,8 @@ export class UserService {
         published_date:string;
         chaptersOrContent:string;
         active:string;
+        readerName:string;
+        readerEmailId:string;
     }){
       return this.http.post(BOOK_URL+"saveBook",book);
     }
